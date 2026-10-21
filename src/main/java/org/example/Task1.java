@@ -2,10 +2,20 @@ package org.example;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Task1 {
     public static void main(String[] args) {
-        int n = 10;
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите количество элементов массива: ");
+        int n = scanner.nextInt();
+
+        // Защита от n = 0 (деление на ноль)
+        if (n <= 0) {
+            System.out.println("Количество элементов должно быть больше 0.");
+            return;
+        }
+
         int[] array = new int[n];
         Random random = new Random();
 
@@ -19,8 +29,8 @@ public class Task1 {
         for (int value : array) {
             sum += value;
         }
-        double average = sum / n;
 
+        double average = sum / n;
         System.out.println("Среднее значение: " + average);
     }
 }
